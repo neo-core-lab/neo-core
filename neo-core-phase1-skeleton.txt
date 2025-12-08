@@ -1,0 +1,21 @@
+﻿neo-phase1-skeleton/
+├── adapters/
+│   ├── base.d.ts              ← already done (your spec)
+│   ├── ig.adapter.js          ← NEW
+│   ├── x.adapter.js           ← NEW
+│   ├── youtube.adapter.js     ← NEW
+│   └── integrity.spec.js      ← NEW
+├── core/
+│   ├── neo.class.js           ← NEW
+│   ├── inference.wasm         ← PLACEHOLDER (0-byte file)
+│   └── sdk-hash.txt           ← NEW (they run hash after build)
+├── extension/
+│   ├── manifest.json          ← already done
+│   ├── content.js             ← already done
+│   ├── background.js          ← already done
+│   └── options.html           ← NEW
+├── tests/
+│   ├── battery.spec.js        ← NEW
+│   ├── adapter-stub.spec.js   ← NEW
+│   └── ci-hash.spec.js        ← NEW
+└── README.md                  ← already done
