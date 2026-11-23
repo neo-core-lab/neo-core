@@ -1,4 +1,6 @@
-﻿==============================================================
+﻿> **Update, NEO 4.0.13:** NEO now veils all replies equally, with no harm filter. See [CHANGELOG.md](CHANGELOG.md).
+
+==============================================================
 🟩 NEO UMBRELLA SYSTEM — L1 PERCEPTION LAYER (NEO CORE)
 ==============================================================
 Document Class: ENGINEERING README • ARCHITECTURE SPEC • MASON’S OATH

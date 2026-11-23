@@ -1,0 +1,34 @@
+/* NEO MARK (◐ darkness and light)
+   A small, faint ◐ in the bottom-right corner of every veiled comment and
+   veiled picture, so people always know they are reading a NEO veil.
+   Loaded by the extension itself (manifest), so sites with strict security
+   rules, like Threads, cannot block it. Separate from content.css. */
+
+[data-neo-masked='1']:not([data-neo-revealed='1']):not([data-neo-locked='1'])::after {
+    content: '\25D0';
+    float: right;
+    margin-left: 0.8em;
+    font-size: 0.75em;
+    line-height: 1.9;
+    opacity: 0.4;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    font-family: 'Segoe UI Symbol', 'Apple Symbols', 'DejaVu Sans', 'Noto Sans Symbols 2', sans-serif;
+}
+
+@media (hover: hover) {
+    [data-neo-masked='1']:hover::after { content: none !important; }
+}
+
+[data-neo-media-state='veiled'] > [data-neo-media-veil]::after {
+    content: '\25D0';
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    font-size: 0.75em;
+    line-height: 1;
+    opacity: 0.4;
+    pointer-events: none;
+    font-family: 'Segoe UI Symbol', 'Apple Symbols', 'DejaVu Sans', 'Noto Sans Symbols 2', sans-serif;
+}

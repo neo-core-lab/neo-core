@@ -1,6 +1,6 @@
 /*
-   NEO Core 4.0 — Background Service Worker
-   © 2023–2025 Luciana Fisher. All Rights Reserved.
+   NEO Core 4.0 â€” Background Service Worker
+   Â© 2023â€“2025 Luciana Fisher. All Rights Reserved.
    Zero-Log Architecture: no telemetry, no storage of user text, no external calls.
 */
 
@@ -11,13 +11,16 @@ const DEFAULT_SETTINGS = {
 };
 
 /* ---------- 1. Install / Update ---------- */
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.set(DEFAULT_SETTINGS);
+chrome.runtime.onInstalled.addListener(async () => {
+  // Keep settings people already chose; only fill in missing defaults
+  const saved = await chrome.storage.sync.get(DEFAULT_SETTINGS);
+  await chrome.storage.sync.set(saved);
   chrome.action.setBadgeText({ text: '' });
 });
 
 /* ---------- 2. Keyboard Shortcuts ---------- */
-chrome.commands.onCommand.addListener(async cmd => {
+// Android: Firefox for Android has no keyboard shortcuts, so only listen if they exist
+if (chrome.commands) chrome.commands.onCommand.addListener(async cmd => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tab?.id) return;
 

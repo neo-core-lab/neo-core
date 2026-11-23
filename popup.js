@@ -1,4 +1,4 @@
-// popup.js — Neo Core 3.0 packs + settings (with harmFilter toggle)
+// popup.js — Neo Core 3.0 packs + settings
 
 const DEFAULTS = {
     enableAffirmations: true,
@@ -6,8 +6,7 @@ const DEFAULTS = {
     enableAutomationBadge: true,
     autoTag: "#auto",
     rescanMs: 1500,
-    activePack: "core",
-    harmFilterEnabled: true
+    activePack: "core"
 };
 
 function $(id) {
@@ -46,9 +45,6 @@ function loadOptions() {
         if ($("rescanMs")) {
             $("rescanMs").value = settings.rescanMs || 1500;
         }
-        if ($("harmFilterEnabled")) {
-            $("harmFilterEnabled").checked = settings.harmFilterEnabled !== false;
-        }
 
         const active = (settings.activePack || "core")
             .split(",")
@@ -81,9 +77,6 @@ function saveOptions() {
     if ($("rescanMs")) {
         const val = parseInt($("rescanMs").value, 10);
         settings.rescanMs = isNaN(val) ? 1500 : Math.max(300, val);
-    }
-    if ($("harmFilterEnabled")) {
-        settings.harmFilterEnabled = $("harmFilterEnabled").checked;
     }
 
     const packBoxes = document.querySelectorAll("[data-pack]");
